@@ -24,7 +24,7 @@ VECTOR_STORE_DIR.mkdir(parents=True, exist_ok=True)
 # Groq API configuration
 def get_groq_client():
     # api_key = os.getenv("GROQ_API_KEY")       # for local running
-    api_key = st.secrets("GROQ_API_KEY")        # for installations/deployment on streamlit cloud 
+    api_key = st.secrets["GROQ_API_KEY"]         # for installations/deployment on streamlit cloud 
     if not api_key:
         raise ValueError("GROQ_API_KEY not found in environment variables")
     return Groq(api_key=api_key)
