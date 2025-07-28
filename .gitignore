@@ -1,0 +1,10 @@
+venv/
+
+__pycache__/
+*.py[cod]
+
+.env
+
+vector_db/
+
+web_scraping_with_history_demo_2/

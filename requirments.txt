@@ -1,0 +1,25 @@
+streamlit==1.32.2
+requests==2.31.0
+beautifulsoup4==4.12.2
+groq==0.3.0
+python-dotenv==1.0.0
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+langchain==0.1.5
+numpy==1.26.0
+tqdm==4.66.1
+torch==2.1.0
+transformers==4.35.2
+
+
+
+# Basic dependencies (unversioned)
+# streamlit
+# requests
+# beautifulsoup4
+# groq
+# python-dotenv
+# sentence-transformers
+# faiss-cpu
+# langchain
+# numpy

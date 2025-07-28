@@ -1,0 +1,103 @@
+
+Chat Bot Link : 
+
+
+
+1. Project Overview
+This project delivers a specialized chatbot for Singapore's Changi Airport and Jewel Changi complex, utilizing cutting-edge natural
+ language processing and information retrieval technologies. The system provides accurate, instant responses to traveler inquiries by
+intelligently processing official website content through a structured pipeline.
+
+
+2. Technical Implementation
+
+  2.1. Data Processing Pipeline : 
+          The system begins with web scraping of official Changi Airport and Jewel Changi websites. A dedicated scraping module 
+carefully extracts relevant content while preserving semantic structure. The raw HTML undergoes multi-stage cleaning to remove navigation
+elements, advertisements, and duplicate information. The cleaned content is organized into logical categories (flight information, terminal
+services, attractions, etc.) and stored in a structured format optimized for retrieval.
+
+   2.2 Knowledge Representation :
+
+For efficient information retrieval, the system employs sentence embeddings. The MiniLM-L6 model
+transforms textual content into 384-dimensional vector representations, capturing semantic relationships between airport services and
+facilities. These embeddings are indexed using Facebook's FAISS library, enabling lightning-fast similarity searches even with extensive
+datasets.
+
+
+
+    2.3 Conversational Interface :
+The chatbot implements a Retrieval-Augmented Generation architecture that combines the strengths of vector search with large language models. When receiving a
+query, the system first retrieves the most relevant context passages from its knowledge base, then uses Groq's optimized LLaMA3-70B model to generate human-like 
+responses grounded in the retrieved facts. The interface includes careful prompt engineering to ensure responses stay factual and on-topic.
+
+   2.4 prompt : 
+     I have use the context base and role based prompting  for the answer retrieval by llms(groq)
+     Example : 
+     messages = [
+        {
+            "role": "system",
+            "content": f"Answer questions using only this context: {context}. "
+                       "If the answer can't be found in the context, say 'This information is not available in the source'. "
+                       "Be concise and accurate."
+        },
+        {
+            "role": "user",
+            "content": user_input
+        }
+    ]
+
+
+3. System Architecture
+Core Components
+Information Crawler: Automated website monitoring and content updates
+Knowledge Processor: Text normalization and semantic chunking
+Vector Engine: Real-time similarity search infrastructure
+Dialogue Manager: Context-aware response generation
+User Interface: Accessible web-based chat portal
+
+
+Data Flow
+Source websites → 2. Content scraper → 3. Cleaning pipeline → 4. Embedding generator → 5. Vector index → 6. Query processor → 7. Response generator → 8. User interface
+
+1. Source websites
+2. Content scraper 
+3. Cleaning pipeline
+4. Embedding generator
+5. Vector index
+6. Query processor
+7. Response generator
+8. User interface
+
+1. Source Websites  
+   - Official Changi Airport and Jewel Changi websites providing flight info, services, and attractions.  
+
+2. Content Scraper  
+   - Automated tool using BeautifulSoup/Scrapy to extract HTML content while avoiding bot detection.  
+
+3. Cleaning Pipeline  
+   - Removes ads, HTML tags, and irrelevant sections; structures data into FAQs and service descriptions.  
+
+4. Embedding Generator  
+   - Converts cleaned text into 384D vectors using Sentence Transformers (SBERT) for semantic search.  
+
+5. Vector Index  
+   - FAISS/Pinecone stores embeddings for fast similarity searches (e.g., finding terminal guides).  
+
+6. Query Processor  
+   - Matches user questions with indexed content using hybrid keyword + vector search.  
+
+7. Response Generator  
+   - Groq’s LLaMA3-70B generates answers grounded in retrieved context for accuracy. and use the  rolebased and content prompting for
+   for answer retrieval by llm model.  
+
+8. User Interface 
+   - Streamlit web app or REST API for integration with websites/mobile apps.
+   deployed on the streamlit cloud by using streamlit interface 
+   i can deployed it using the fast api and pydentic but  i use the  streamlit for its  easy and less time due to monday to saturday working office
+
+
+
+
+
+
