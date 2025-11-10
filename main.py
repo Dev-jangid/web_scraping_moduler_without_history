@@ -77,12 +77,12 @@ with st.sidebar:
     st.divider()
     st.subheader("Vector Database")
     
-    # # Show current status
-    # if st.session_state.current_url:
-    #     # st.info(f"Loaded: {st.session_state.current_url[:50]}...")
-    # else:
-    #     pass
-    #     # st.info("No website loaded")
+    # Show current status
+    if st.session_state.current_url:
+        st.info(f"Loaded: {st.session_state.current_url[:50]}...")
+    else:
+        pass
+        # st.info("No website loaded")
     
     # Clear databases button
     if st.button("Clear All Vector Databases"):
