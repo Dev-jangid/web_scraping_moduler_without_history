@@ -131,7 +131,6 @@ else:
     st.info("👈 Enter a website URL in the sidebar to get started")
 
 st.divider()
-st.caption("WebChat Assistant v1.3 | Single URL mode | Local vector database")
 
 
 
