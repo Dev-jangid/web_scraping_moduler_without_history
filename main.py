@@ -81,7 +81,8 @@ with st.sidebar:
     if st.session_state.current_url:
         st.info(f"Loaded: {st.session_state.current_url[:50]}...")
     else:
-        st.info("No website loaded")
+        pass
+        # st.info("No website loaded")
     
     # Clear databases button
     if st.button("Clear All Vector Databases"):
@@ -90,7 +91,7 @@ with st.sidebar:
         st.session_state.current_url = ""
         st.session_state.vector_store = None
         st.session_state.chunks = None
-        st.success("All vector databases cleared")
+        # st.success("All vector databases cleared")
         st.rerun()
 
 # Main Chat Area
@@ -128,7 +129,8 @@ if st.session_state.current_url:
                 except Exception as e:
                     st.error(f"Error: {str(e)}")
 else:
-    st.info("👈 Enter a website URL in the sidebar to get started")
+    pass
+    # st.info("👈 Enter a website URL in the sidebar to get started")
 
 st.divider()
 
