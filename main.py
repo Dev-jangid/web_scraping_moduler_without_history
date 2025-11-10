@@ -60,10 +60,10 @@ with st.sidebar:
                             
                             # Check for existing vector store
                             if vector_store_exists(url):
-                                st.info("Loading existing vector database")
+                                # st.info("Loading existing vector database")
                                 vector_store, chunks = load_vector_store(url)
                             else:
-                                st.info("Creating new vector database")
+                                # st.info("Creating new vector database")
                                 vector_store, chunks = create_vector_store(processed_text, embedding_model, url)
                             
                             # Store in session state
@@ -77,12 +77,12 @@ with st.sidebar:
     st.divider()
     st.subheader("Vector Database")
     
-    # Show current status
-    if st.session_state.current_url:
-        st.info(f"Loaded: {st.session_state.current_url[:50]}...")
-    else:
-        pass
-        # st.info("No website loaded")
+    # # Show current status
+    # if st.session_state.current_url:
+    #     # st.info(f"Loaded: {st.session_state.current_url[:50]}...")
+    # else:
+    #     pass
+    #     # st.info("No website loaded")
     
     # Clear databases button
     if st.button("Clear All Vector Databases"):
